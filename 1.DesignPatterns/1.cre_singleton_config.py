@@ -59,9 +59,10 @@ class Config(metaclass=SingletonMeta):
 # Demo / quick test
 if __name__ == "__main__":
     # Create two references and prove they are the same instance
-    c1 = Config("config.json")
+    c1 = Config("1.cre_backend_config.json")
     # second creation returns the same instance (path ignored)
-    c2 = Config("other.json")
+    c2 = Config("1.cre_frontend_config.json")
+
     print("Same instance:", c1 is c2)
     print("Config example:", c1.get("app_name", "unknown"))
 
