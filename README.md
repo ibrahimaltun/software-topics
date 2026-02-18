@@ -4,7 +4,7 @@
 
 - Reusable solutions for common software design problems
 
-##### Categories
+##### Categories grouped by purpose
 
 1. Creational: Control object creation
    - Singleton
@@ -27,3 +27,11 @@
    - Chain of Responsibility
    - Template Method
    - State
+
+#### 2- Resiliency patterns
+
+- Patterns to make systems tolerate failures and recover
+
+a.
+
+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

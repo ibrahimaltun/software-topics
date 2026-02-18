@@ -1,23 +1,7 @@
 import json
 import threading
 from typing import Any, Optional
-
-
-class SingletonMeta(type):
-    """Thread-safe Singleton metaclass."""
-    _instances: dict = {}
-    _lock = threading.Lock()
-
-    def __call__(cls, *args, **kwargs):
-        # Fast path
-        if cls in cls._instances:
-            return cls._instances[cls]
-        # Slow path with lock
-        with cls._lock:
-            if cls not in cls._instances:
-                instance = super().__call__(*args, **kwargs)
-                cls._instances[cls] = instance
-        return cls._instances[cls]
+from cre1_singleton_class import SingletonMeta
 
 
 class Config(metaclass=SingletonMeta):
@@ -59,9 +43,9 @@ class Config(metaclass=SingletonMeta):
 # Demo / quick test
 if __name__ == "__main__":
     # Create two references and prove they are the same instance
-    c1 = Config("1.cre_backend_config.json")
+    c1 = Config("cre1_backend_config.json")
     # second creation returns the same instance (path ignored)
-    c2 = Config("1.cre_frontend_config.json")
+    c2 = Config("cre1_frontend_config.json")
 
     print("Same instance:", c1 is c2)
     print("Config example:", c1.get("app_name", "unknown"))
