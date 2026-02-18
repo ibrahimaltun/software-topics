@@ -7,4 +7,13 @@
 
 - A centralized logging facility that configures formatting/handlers once and modules fetch the same logger instance.
 
+#### metaclass
+
+##### Metaclass hooks
+
+- new():
+- init():
+- call():
+- prepare():
+
 ## ---------------------
