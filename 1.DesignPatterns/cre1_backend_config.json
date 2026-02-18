@@ -1,0 +1,22 @@
+{
+    "app_name": "usercontent",
+    "__comment1__": "This is a simple configuration file, all values and sections that start with underscore (_) are ignored. Edit a section and remove the _ in front of the name. Refer to the user's guide for details.",
+    "settings": {
+        "_cert": "myserver.mydomain.com",
+        "_WANonly": true,
+        "_LANonly": true,
+        "_sessionKey": "MyReallySecretPassword1",
+        "_port": "443"
+    },
+    "domains": {
+        "": {
+            "_title": "MyServer",
+            "_newAccounts": true
+        }
+    },
+    "_letsencrypt": {
+        "email": "myemail@mydomain.com",
+        "names": "myserver.mydomain.com",
+        "production": false
+    }
+}
