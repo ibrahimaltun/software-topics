@@ -9,7 +9,7 @@ class OrderedMeta(type):
 
     def __new__(mcls, name, bases, namespace):
         # namespace artık OrderedDict olduğu için sıralamayı görebiliriz
-        print(f"Definisyon sırası for {name}: {list(namespace.keys())}")
+        print(f"-{name}- sınıfı için definition sırası: {list(namespace.keys())}")
         return super().__new__(mcls, name, bases, dict(namespace))
 
 
@@ -20,5 +20,4 @@ class My(metaclass=OrderedMeta):
 
 
 if __name__ == "__main__":
-    # Program başında çıktı: Definisyon sırası for My: ['__module__','a','foo','b','__doc__']
     pass
