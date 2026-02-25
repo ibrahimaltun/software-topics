@@ -13,7 +13,7 @@ class OrderedMeta(type):
         return super().__new__(mcls, name, bases, dict(namespace))
 
 
-class My(metaclass=OrderedMeta):
+class MySubClass(metaclass=OrderedMeta):
     a = 1
     def foo(self): pass
     b = 2
