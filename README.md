@@ -1,5 +1,11 @@
 ### General Software Topics
 
+#### 0- Common Topics
+
+1. A. thread-safe
+2. B. metaclass
+3. C.
+
 #### 1- Design Patterns
 
 - Reusable solutions for common software design problems
