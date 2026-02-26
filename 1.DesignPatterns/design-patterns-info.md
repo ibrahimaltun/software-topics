@@ -10,7 +10,7 @@
   - Multiprocess durumlarda process'ler arası singleton paylaşılmaz, her process kendi instance'ını oluşturur.
   - Seirleştirme(pickle): unpickling yeni bir örnek oluşturabilir, dikkatli olmak gerekir.
 
-- Alternatif olarak Dpendency Injection(DI) önerilir.
+- Alternatif olarak Dependency Injection(DI) önerilir.
 
 ### cre1_singleton_config.py
 
@@ -21,4 +21,15 @@
 
 - A centralized logging facility that configures formatting/handlers once and modules fetch the same logger instance.
 
-## ---------------------
+---
+
+## 2. Factory Pattern
+
+- Amaç: Nesne/nesne ailesi oluşturmasını istemciden(client code) soyutlayarak, hangi somut sınıfın kullanılacağına karar verme sorumluluğunu merkezi hale getirmektir.
+- Nesne oluşturma kodunu dağıtmak yerine tek yerde toplar; istemci kodu somut sınıflara bğlı kalmaz, değişiklikler(yeni somut sınıf ekleme, konfigürasyon) daha az etkiyle yapılır.
+
+### Varyasyonlar
+
+1. Simple Factory(Factory Fonksiyonu): Tek bir fonksiyon ya da sınıf, parametreye göre uygun nesneyi döndürür. (Resmi GoF desn)
+2. Factory Method
+3. Abstract Factory
