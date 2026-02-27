@@ -26,10 +26,53 @@
 ## 2. Factory Pattern
 
 - Amaç: Nesne/nesne ailesi oluşturmasını istemciden(client code) soyutlayarak, hangi somut sınıfın kullanılacağına karar verme sorumluluğunu merkezi hale getirmektir.
-- Nesne oluşturma kodunu dağıtmak yerine tek yerde toplar; istemci kodu somut sınıflara bğlı kalmaz, değişiklikler(yeni somut sınıf ekleme, konfigürasyon) daha az etkiyle yapılır.
+- Nesne oluşturma kodunu dağıtmak yerine tek yerde toplar; istemci kodu somut sınıflara bağlı kalmaz, değişiklikler(yeni somut sınıf ekleme, konfigürasyon) daha az etkiyle yapılır.
 
 ### Varyasyonlar
 
-1. Simple Factory(Factory Fonksiyonu): Tek bir fonksiyon ya da sınıf, parametreye göre uygun nesneyi döndürür. (Resmi GoF desn)
-2. Factory Method
-3. Abstract Factory
+1. Simple Factory(Factory Fonksiyonu): Tek bir fonksiyon ya da sınıf, parametreye göre uygun nesneyi döndürür. (Resmi GoF deseni -> Gang of Four: başlangıçta 23 tasarım desenini ortaya çıkartan 4 kişilik bir ekip, ayrıca bu desenler GoF patternleri olarak da anılır)
+2. Factory Method: Bir üst sınıf/fonksiyon "factory method" tanımlar; alt sınıflar bu metodu ezerek farklı nesneler yaratır. (OOP tabanlı esneklik)
+3. Abstract Factory: Birbiriyle ilişkili veya bağımlı nesne ailelerini üreten arayüz. Örneğin farklı UI temaları için widget-factory’leri (buton, pencere, menü).
+
+### Avantajlar
+
+- Bağımlılık azaltma (low coupling).
+- Yeni türler eklemek genelde istemciyi bozmaz (open/closed).
+- Test edilebilirlik artar (mock/replace kolay).
+
+### Dezavantajlar
+
+- Fazladan sınıf/soyutlama katmanı (boilerplate).
+- Çok küçük projelerde aşırı mimari olabilir.
+
+### Ne zaman kullanmalı:
+
+- Nesne yaratımı kararının birden çok yerde tekrarlandığı, varyasyonun konfigürasyona veya runtime koşullarına bağlı olduğu durumlarda.
+- Birden çok somut sınıfın ortak arayüzle değiştirilebilir olması istendiğinde.
+
+### Dikkat edilmesi gerekenler
+
+- Factory’ler genelde Dependency Injection ile birlikte iyi çalışır; DI container kullanıyorsan factory kullanımını container üzerinden çözebilirsin.
+- Çok karmaşık factory zincirleri yerine basit ve anlaşılır bir factory seç; gerektiğinde Abstract Factory’yi tercih et.
+- Thread-safety: Factory içinde state (örn. cache, singleton lifecyle) tutuyorsan eşzamanlama gerekir; ama stateless factory’ler genelde thread-safe’dir.
+
+---
+
+## 4. Builder Pattern
+
+- Amaç (Intent): Karmaşık bir nesnenin (veya nesne ailesinin) oluşturma sürecini adım adım soyutlamak; aynı oluşturma sürecinden farklı temsil veya farklı ürünler üretebilmek.
+- Ne çözer: Çok sayıda opsiyon/parametreyle karmaşık nesne inşa ederken oluşturma kodunun istemciye dağılmasını önler; özellikle oluşturma algoritmasının adımları sabit ama ürün temsili farklıysa uygundur.
+
+### Bileşenler
+
+- Builder (arayüz): Ürünün parçalarını oluşturmak için metotlar (ör: set_title, add_section).
+- ConcreteBuilder: Builder arayüzünü uygular; Product içeriğini tutar ve get_result() döndürür.
+- Director (opsiyonel): Oluşturma algoritmasını (adımları) koordine eder.
+- Product: Oluşturulan nesne (rapor stringi, SQL sorgusu, vb.)
+
+### Avantaj / Dezavantaj
+
+- Adımların ayrılması, okunabilir kod, farklı temsiller (formatlar), test kolaylığı.
+- Fazladan sınıf katmanı (boilerplate), bazı durumlarda fluent API veya fabrika fonksiyonuyla da yeterli olabilir.
+  - Not: Builder genelde mutable bir nesne olarak adım adım doldurulur; tipik olarak tek bir thread / create-per-client için kullanılır — thread-safety gerekiyorsa harici senkronizasyon veya her thread için ayrı builder kullan.
+    İmplementasyon varyasyonları
