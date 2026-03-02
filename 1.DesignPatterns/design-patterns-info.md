@@ -25,7 +25,7 @@
 
 ## 2. Factory Pattern
 
-- Amaç: Nesne/nesne ailesi oluşturmasını istemciden(client code) soyutlayarak, hangi somut sınıfın kullanılacağına karar verme sorumluluğunu merkezi hale getirmektir.
+- Amaç: Herhangi bir nesnenin oluşturulmasını istemciden(client code) soyutlayarak, hangi somut sınıfın kullanılacağına karar verme sorumluluğunu merkezi hale getirmektir.
 - Nesne oluşturma kodunu dağıtmak yerine tek yerde toplar; istemci kodu somut sınıflara bağlı kalmaz, değişiklikler(yeni somut sınıf ekleme, konfigürasyon) daha az etkiyle yapılır.
 
 ### Varyasyonlar
