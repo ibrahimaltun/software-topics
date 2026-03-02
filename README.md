@@ -2,9 +2,10 @@
 
 #### 0- Common Topics
 
-1. A. thread-safe
-2. B. metaclass
-3. C.
+- A. Thread-safe
+- B. Metaclass
+- C. Inversion of Control - IoC
+- D.
 
 #### 1- Design Patterns
 
