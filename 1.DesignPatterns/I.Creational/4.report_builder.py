@@ -72,7 +72,7 @@ class HTMLReportBuilder(ReportBuilder):
         parts.append(f"<h1>{self._escape(self._report.title)}</h1>")
         for sec in self._report.sections:
             parts.append(f"<h2>{self._escape(sec['heading'])}</h2>")
-            parts.append(f"<p>{self._escape(sec['body']).replace('\\n','<br>')}</p>")
+            # parts.append(f"<p>{self._escape(sec['body']).replace('\\n','<br>')}</p>")
         if self._report.footer:
             parts.append(
                 f"<footer>{self._escape(self._report.footer)}</footer>")
