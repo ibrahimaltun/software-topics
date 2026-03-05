@@ -13,12 +13,12 @@
 
 ##### Categories grouped by purpose
 
-1. Creational: Control object creation
-   - Singleton: Bir sınıfın yalnızca tek örneğinin olmasını sağlar.
-   - Factory Method: Alt sınıflara hangi sınıfın örneğini oluşturacaklarını bırakır; istemci factory metodu çağırır ve somut sınıfı bilmez.
-   - Abstract Factory: Birbiriyle ilişkili veya bağımlı nesne ailelerini üreten soyut bir arayüz sağlar.
-   - Builder: Karmaşık nesne inşasını adım adım soyutlar; aynı oluşturma sürecinden farklı temsil/ürünler üretmeyi sağlar.
-   - Prototype: Mevcut bir nesnenin kopyasını (klonunu) çıkararak yeni nesneler üretir; oluşturma maliyeti yüksek veya dinamik tip seçimi gerekiyorsa kullanışlı.
+1. Creational: control object creation and composition.
+   - Singleton - ensure one instance of a class and provide a global access point. Use for central managers or configs.
+   - Factory Method - define an interface for creating an object, but let subclasses decide which class to instantiate. Use when a class instantiation to subclasses.
+   - Abstract Factory - provide an interface to create families of related objects without specifying concrete classes. Use for interchangeable product families.
+   - Builder - seperate construction of a complex object from its representation, allowing step-by-step construction. Use for constructing complex objects with many optional parts.
+   - Prototype - create new objects by cloning a prototypical instance. Use when creating new instances is expensive or when runtime configuration of types is needed.
 
 2. Structural: Compose objects and interfaces
    - Adapter
