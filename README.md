@@ -1,17 +1,17 @@
-### General Software Topics
+# General Software Topics
 
-#### 0- Common Topics
+## 0- Common Topics
 
 - A. Thread-safe
 - B. Metaclass
 - C. Inversion of Control - IoC
 - D.
 
-#### 1- Design Patterns
+## 1- Design Patterns
 
 - Reusable solutions for common software design problems
 
-##### Categories grouped by purpose
+### Categories grouped by purpose
 
 1. Creational: control object creation and composition.
    - Singleton - ensure one instance of a class and provide a global access point. Use for central managers or configs.
@@ -20,7 +20,7 @@
    - Builder - seperate construction of a complex object from its representation, allowing step-by-step construction. Use for constructing complex objects with many optional parts.
    - Prototype - create new objects by cloning a prototypical instance. Use when creating new instances is expensive or when runtime configuration of types is needed.
 
-2. Structural: Compose objects and interfaces
+2. Structural: compose classes/objects to form larger structures.
    - Adapter
    - Facade
    - Decorator
@@ -28,7 +28,7 @@
    - Composite
    - Bridge
 
-3. Behavioral: Algorithms and Object interactions
+3. Behavioral: manage algorithms, communication, and responsibilities.
    - Strategy
    - Observer
    - Command
